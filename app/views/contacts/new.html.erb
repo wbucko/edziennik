@@ -2,6 +2,7 @@
     <div class="row">
         <div class="col-md-6 col-md-offset-3 well">
             <h1 class="text-center">Napisz do mnie</h1>
+            <p>Chwilowo formularz nieaktywny</p>
             
             <%= form_for @contact do |f| %>
                 <div class="form-group">
@@ -19,7 +20,7 @@
                 <%= f.text_area :message, class: 'form-control' %>
                 </div>
                 
-                <%= f.submit "Wyślij", class: 'btn btn-default' %>
+                <%= f.submit "Wyślij", disabled: true, class: 'btn btn-default' %>
             <% end %>
         </div>
     </div>
