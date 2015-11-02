@@ -26,14 +26,13 @@
         <%# if user_signed_in? %>
           <%#= button_to "Sign Out", '#', method: :delete, class: 'btn btn-primary navbar-btn' %>
         <% #else %>
-          <%= link_to "Zaloguj", '#', class: 'btn btn-primary navbar-btn', method: :get %>
+          <%= link_to "Zaloguj", new_user_session_path, class: 'btn btn-primary navbar-btn', method: :get %>
         <%# end %>
       </div>
       <ul class="nav navbar-nav navbar-right">
-        <% # if user_signed_in? %>
-          <li><%#= link_to "Community", users_path %></li>
-          <li><%#= link_to "My Account", edit_user_registration_path %></li>
-        <% # end %>
+        <% if user_signed_in? %>
+          <li><%= link_to "Moje Konto", edit_user_registration_path %></li>
+        <% end %>
         <li><%= link_to "O stronie", about_path %></li>
         <li><%= link_to "Kontakt", new_contact_path %></li>
       </ul>
