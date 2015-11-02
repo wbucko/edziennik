@@ -17,6 +17,8 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'bootstrap-sass', '3.3.5'
 # Use font awesome for icons
 gem 'font-awesome-sass'
+# Use devise for user authentication
+gem 'devise'
 #use postress for production
 group :production do
   gem 'pg'
