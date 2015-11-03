@@ -23,11 +23,11 @@
     </div>
     <div class="collapse navbar-collapse" id="main-nav-collapse">
       <div class="nav navbar-nav navbar-right">
-        <%# if user_signed_in? %>
-          <%#= button_to "Sign Out", '#', method: :delete, class: 'btn btn-primary navbar-btn' %>
-        <% #else %>
+        <% if user_signed_in? %>
+          <%= button_to "Sign Out", '#', method: :delete, class: 'btn btn-primary navbar-btn' %>
+        <% else %>
           <%= link_to "Zaloguj", new_user_session_path, class: 'btn btn-primary navbar-btn', method: :get %>
-        <%# end %>
+        <% end %>
       </div>
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
