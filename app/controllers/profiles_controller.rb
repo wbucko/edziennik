@@ -5,19 +5,39 @@ class ProfilesController < ApplicationController
    end
    
     def create
-        @user = User.find(params[:user_id])
+        @user = User.find( params[:user_id] )
         @profile = @user.build_profile(profile_params)
         if @profile.save
-            flash[:success] = "Profil zaktualizowany!"
-            redirect_to index_path( params[:user_id])
+            flash[:success] = "Profil utworzony!"
+            redirect_to root_path
         else
+            flash[:danger] = 'Uzupełnij wszystkie pola!'
             render action: :new
+        end
+    end
+    
+    def edit
+        @user = User.find( params[:user_id] )
+        @profile = @user.profile
+    end
+    
+    def update
+        @user = User.find( params[:user_id] )
+        @profile = @user.profile
+        if @profile.update_attributes(profile_params)
+            flash[:success] = 'Profil zaktualizowany!'
+            redirect_to root_path
+        else
+            flash[:danger] = 'Uzupełnij wszystkie pola!'
+            render action: :edit
         end
     end
     
     
     private
     def profile_params
-       params.require(:profile).permit(:first_name, :last_name, :year, :contact_email, :opinion) 
+      # params.require(:profile).permit(:first_name, :last_name, :year, :contact_email, :opinion) 
+      params.require(:profile).permit!
     end
+    
 end

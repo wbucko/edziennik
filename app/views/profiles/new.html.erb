@@ -2,34 +2,8 @@
     <div class="col-md-6 col-md-offset-3 well">
         <h1 class="text-center">Utwórz profil</h1>
         <p class="text-justify">Uzupełnij swój profil aby mieć dostęp do wyników zajęć.</p>
-        
-        <%= form_for @profile, url: user_profile_path do |f| %>
-            <div class="form-group">
-                <%= f.label 'Imię' %>
-                <%= f.text_field :first_name, class: 'form-control' %>
-            </div>
-            <div class="form-group">
-                <%= f.label 'Nazwisko' %>
-                <%= f.text_field :last_name, class: 'form-control' %>
-            </div>
-            <div class="form-group">
-                <%= f.label 'Rok' %>
-                <%= f.text_field :year, class: 'form-control' %>
-            </div>
-            <div class="form-group">
-                <%= f.label 'Email' %>
-                <%= f.text_field :contact_email, class: 'form-control' %>
-            </div>
-            <div class="form-group">
-                <%= f.label 'Opinia Nauczyciela' %>
-                <%= f.text_area :opinion, class: 'form-control' %>
-            </div>
-            <div class="form-group">
-                <%= f.submit 'Zapisz', class: 'btn btn-primary' %>
-            </div>
-            
-        
-        <% end %>
+
+        <%= render "profiles/shared/profile" %>
         
     </div>
 </div>

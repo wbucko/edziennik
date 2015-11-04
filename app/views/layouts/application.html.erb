@@ -24,7 +24,7 @@
     <div class="collapse navbar-collapse" id="main-nav-collapse">
       <div class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
-          <%= button_to "Sign Out", '#', method: :delete, class: 'btn btn-primary navbar-btn' %>
+          <%= button_to "Wyloguj", destroy_user_session_path, method: :delete, class: 'btn btn-primary navbar-btn' %>
         <% else %>
           <%= link_to "Zaloguj", new_user_session_path, class: 'btn btn-primary navbar-btn', method: :get %>
         <% end %>
