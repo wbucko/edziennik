@@ -6,10 +6,8 @@
                 <p>Tralala profil utworzony</p>
                 <%= link_to 'Edytuj profil', edit_user_profile_path(current_user) if current_user %>
             <% else %>
-            
                 <%= link_to 'Utwórz profil', new_user_profile_path(current_user) if current_user %>
-             
-                
+
             <% end %>
         
         <% else %>
