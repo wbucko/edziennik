@@ -1,4 +1,4 @@
-<%= form_for @profile, url: user_profile_path(@user) do |f| %>
+<%= form_for @profile, url: user_profile_path(@user), html: { multipart: true } do |f| %>
     <div class="form-group">
         <%= f.label 'Imię' %>
         <%= f.text_field :first_name, class: 'form-control' %>
@@ -7,6 +7,10 @@
         <%= f.label 'Nazwisko' %>
         <%= f.text_field :last_name, class: 'form-control' %>
     </div>
+    <div class="form-group">
+        <%= f.label 'Zdjęcie profilowe' %>
+        <%= f.file_field :avatar, class: 'form-control' %>
+    </div>    
     <div class="form-group">
         <%= f.label 'Rok' %>
         <%= f.text_field :year, class: 'form-control' %>

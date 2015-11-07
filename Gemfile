@@ -19,6 +19,8 @@ gem 'bootstrap-sass', '3.3.5'
 gem 'font-awesome-sass'
 # Use devise for user authentication
 gem 'devise'
+# Use paperclip for adding avatars to profiles
+gem "paperclip", "~> 4.3"
 #use postress for production
 group :production do
   gem 'pg'
