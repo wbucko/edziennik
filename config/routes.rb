@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
   
+  
   devise_for :users
   resources :users do
     resource :profile
+    resource :history
   end
     
   resources :contacts
