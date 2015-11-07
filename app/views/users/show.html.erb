@@ -6,7 +6,8 @@
             <h3><%= @user.profile.year %> rok</h3>
                 
             <% if @user.email == 'admin@admin.pl' %>    
-                <h3>Opinia o uczniu:</h3><br><p><%= @user.profile.opinion %></p>
+                <h3>Opinia o uczniu:</h3><br>
+                <p><%= @user.profile.opinion %></p>
             <% end %>
             <p>Chcesz zmienić swoje dane?</p>
             <%= link_to 'Edytuj profil', edit_user_profile_path(@user), class: 'form-control btn btn-info' %>
