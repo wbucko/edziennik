@@ -9,7 +9,17 @@
             <% end %>
             <p>Chcesz zmienić swoje dane?</p>
             <%= link_to 'Edytuj profil', edit_user_profile_path(@user), class: 'form-control btn btn-info' %>
-             
+        </div>
+        <div class="col-md-7 col-md-offset-1 well">
+            <h2 class="text-center">Wybierz przedmiot aby sprawdzić oceny.</h2>
+            <div class="img-link">
+            <%= link_to image_tag("historia.png", :alt => "Historia muzyki", class: 'img'), '#' %><br>
+            <%= link_to 'Historia muzyki', '#', class: 'btn btn-success btn-block btn-lg' %>
+            </div>
+            <div class="img-link">
+            <%= link_to image_tag("nuty.jpg", :alt => "Formy muzyczne", class: 'img'), '#' %><br>
+            <%= link_to 'Formy muzyczne', '#', class: 'btn btn-success btn-block btn-lg' %>
+            </div>
         </div>
     </div>
 </div>    
