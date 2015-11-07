@@ -1,7 +1,15 @@
 <div class="container">
     <div class="row">
-        <div class="col-md-5 well">
-            
-            
-            
+        <div class="col-md-4 well text-center">
+            <h1><%= @user.profile.first_name %> <%= @user.profile.last_name %></h1>
+            <h3>Uczęszcza na <%= @user.profile.year %> rok</h3>
+                
+            <% if @user.email == 'admin@admin.pl' %>    
+                <h3>Opinia o uczniu:</h3><br><p><%= @user.profile.opinion %></p>
+            <% end %>
+            <p>Chcesz zmienić swoje dane?</p>
+            <%= link_to 'Edytuj profil', edit_user_profile_path(@user), class: 'form-control btn btn-info' %>
+             
         </div>
+    </div>
+</div>    
