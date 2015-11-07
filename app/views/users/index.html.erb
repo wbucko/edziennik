@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2 well">
+            <h1 class="text-center">Lista uczniów:</h1>
+                <ul class="list-unstyled">
+                <% @users.each do |u| %>
+                    <% if u.profile %>
+                    <li>
+                        <div class="row">
+                          <div class="col-sm-2 text-center">
+                          <%= image_tag u.profile.avatar.url(:thumb), class: 'img-profil' %>
+                          </div>
+                          <div><h2>
+                          <%= u.profile.first_name %> <%= u.profile.last_name %>
+                          </h2></div>
+                            
+                        </div>
+                    </li>    
+                    <% end %>
+                <% end %>
+                </ul>
+        </div>
+    </div>
+</div>
+        
