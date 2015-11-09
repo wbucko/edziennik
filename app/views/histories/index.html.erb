@@ -1,31 +1,41 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2 well">
 
-<h1>Listing Histories</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Temat</th>
-      <th>Data</th>
-      <th>Ocena</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @histories.each do |history| %>
-      <tr>
-        <td><%= history.temat %></td>
-        <td><%= history.data %></td>
-        <td><%= history.ocena %></td>
-        <td><%= link_to 'Show', history %></td>
-        <td><%= link_to 'Edit', edit_history_path(history) %></td>
-        <td><%= link_to 'Destroy', history, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New History', new_history_path %>
+          <h1 class="text-center">Historia Muzyki</h1>
+          
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Temat</th>
+                <th>Data</th>
+                <th>Ocena</th>
+                <th colspan="3"></th>
+              </tr>
+            </thead>
+          
+            <tbody>
+              <% @histories.each do |history| %>
+                <tr>
+                  <td><%= history.temat %></td>
+                  <td><%= history.data %></td>
+                  <td><%= history.ocena %></td>
+                  <% if current_user.email == 'admin@admin.pl' %>
+                    <td><%= link_to 'Edytuj', edit_history_path(history), class: 'btn btn-warning' %></td>
+                    <td><%= link_to 'Usuń', history, method: :delete, data: { confirm: 'Na pewno?' }, class: 'btn btn-danger' %></td>
+                  <% end %>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+          
+          <br>
+          <% if current_user.email == 'admin@admin.pl' %>
+            <%= link_to 'Nowy temat', new_history_path, class: 'btn btn-success' %>
+          <% end %>
+          <%= link_to 'Powrót', user_path(current_user), class: 'btn btn-default' %>
+        </div>
+      </div>
+    </div>
+          
+                    

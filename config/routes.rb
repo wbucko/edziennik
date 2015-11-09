@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
   
-  
+  resources :histories
   devise_for :users
   resources :users do
     resource :profile
-    resource :history
   end
     
   resources :contacts

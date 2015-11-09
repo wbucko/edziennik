@@ -1,5 +1,11 @@
-<h1>New History</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Back', histories_path %>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2 well">
+            <h1 class="text-center">Nowy temat</h1>
+            
+            <%= render 'form' %>
+            
+            <%= link_to 'Powrót', histories_path, class: 'btn btn-default' %>
+        </div>
+    </div>
+</div>

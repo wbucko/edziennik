@@ -1,19 +1,23 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Temat:</strong>
-  <%= @history.temat %>
-</p>
-
-<p>
-  <strong>Data:</strong>
-  <%= @history.data %>
-</p>
-
-<p>
-  <strong>Ocena:</strong>
-  <%= @history.ocena %>
-</p>
-
-<%= link_to 'Edit', edit_history_path(@history) %> |
-<%= link_to 'Back', histories_path %>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2 well">
+         <p>
+            <strong>Temat:</strong>
+            <%= @history.temat %>
+          </p>
+          
+          <p>
+            <strong>Data:</strong>
+            <%= @history.data %>
+          </p>
+          
+          <p>
+            <strong>Ocena:</strong>
+            <%= @history.ocena %>
+          </p>
+          
+          <%= link_to 'Edit', edit_history_path(@history), class: 'btn btn-warning' %> 
+          <%= link_to 'Back', histories_path, class: 'btn btn-default' %>
+        </div>
+    </div>
+</div>
