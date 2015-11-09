@@ -11,12 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151107145604) do
+ActiveRecord::Schema.define(version: 20151109211613) do
 
   create_table "contacts", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
     t.text     "message"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "grades", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "test_id"
+    t.integer  "result"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "histories", force: :cascade do |t|
+    t.string   "temat"
+    t.date     "data"
+    t.integer  "ocena"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -34,6 +50,14 @@ ActiveRecord::Schema.define(version: 20151107145604) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+  end
+
+  create_table "tests", force: :cascade do |t|
+    t.string   "subject"
+    t.string   "topic"
+    t.date     "date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: :cascade do |t|
