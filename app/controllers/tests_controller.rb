@@ -43,9 +43,4 @@ class TestsController < ApplicationController
    def tests_params
       params.require(:test).permit(:subject, :topic, :date)
    end
-   def admin_verify
-       redirect_to user_path(current_user) unless current_user.email == 'admin@admin.pl'
-   end
-   
-
 end

@@ -11,4 +11,12 @@ def after_sign_in_path_for(resource)
   end
 end
 
+def admin_verify
+  if current_user
+   redirect_to user_path(current_user) unless current_user.email == 'admin@admin.pl'
+  else
+   redirect_to root_path
+  end
+end
+
 end
