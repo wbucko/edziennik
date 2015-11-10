@@ -1,0 +1,29 @@
+<div class="row">
+    <div class="jumbotron">
+        <h1 class="text-center">eDziennik</h1>
+        <p>Poniżej widoczna jest lista wszystkich sprawdzianów. Aby utworzyć nowy kliknij na przycisk <em>Nowy.</em></p>
+        <%= link_to 'Nowy', new_test_path, class: 'btn btn-success btn-lg' %>
+    </div>
+    <div class="col-md-8 col-md-offset-2 well">
+        <table class="table">
+            <tr>
+                <th>Przedmiot</th>
+                <th>Temat</th>
+                <th>Data</th>
+                <th></th>
+                <th></th>
+            </tr>
+        <% @tests.each do |t| %>
+        
+            <tr>
+            <td><%= t.subject %></td>
+            <td><%= t.topic %></td>
+            <td><%= t.date %></td>
+            <td><%= link_to 'Edytuj', edit_test_path(t), class: 'btn btn-info' %></td>
+            <td><%= button_to 'Usuń', destroy_test_path(t), method: :delete, data: { confirm: 'Na pewno?' }, class: 'btn btn-danger' %><br></td>
+            </tr>
+                
+        <% end %>
+        </table>
+    </div>
+</div>

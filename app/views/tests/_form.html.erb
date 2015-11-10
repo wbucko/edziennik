@@ -1,7 +1,7 @@
-<%= form_for @test, url: new_test_path do |f| %>
+<%= form_for (@test) do |f| %>
     <div class="form-group">
         <%= f.label 'Przedmiot' %>
-        <%= f.select :subject, ['Historia Muzyki', 'Formy Muzyczne'], {}, class: 'form-clontrol' %>
+        <%= f.select :subject, ['Historia Muzyki', 'Formy Muzyczne'], {}, class: 'form-control' %>
     </div>
     <div class="form-group">
         <%= f.label 'Temat' %>
@@ -9,10 +9,10 @@
     </div>
     <div class="form-group">
         <%= f.label 'Data' %>
-        <%= f.date_select :date, class: 'form-control' %>
+        <%= f.date_select :date, class: 'control-label' %>
     </div>
     <div class="form-group">
         <%= f.submit 'Zapisz', class: 'btn btn-success' %>
     </div>
 <% end %>
-<% button_to :back, class: 'btn btn-default' %>
+<%= link_to 'Powrót', :back, class: 'btn btn-default' %>

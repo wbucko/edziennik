@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
   resources :tests
+  delete 'tests/:id' => 'tests#destroy', as: :destroy_test
   devise_for :users
   resources :users do
     resource :profile
@@ -10,6 +11,8 @@ Rails.application.routes.draw do
   resources :contacts
   get '/about' => 'pages#about'
   root 'pages#home'
+  
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
