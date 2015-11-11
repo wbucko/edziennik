@@ -1,0 +1,29 @@
+<div class="row">
+    <div class="jumbotron">
+        <h1 class="text-center">eDziennik</h1>
+        <p>Poniżej widoczne są wyniki wszystkich uczniów. Aby wstawić ocenę kliknij na przycisk <em>Nowa.</em></p>
+        <%= link_to 'Nowa', new_grade_path, class: 'btn btn-success btn-lg' %>
+    </div>
+    <div class="col-md-8 col-md-offset-2 well">
+        <table class="table">
+            <tr>
+                <th>Temat</th>
+                <th>Uczeń</th>
+                <th>Ocena</th>
+                <th></th>
+                <th></th>
+            </tr>
+        
+        <% @grades.each do |g| %>
+            <tr>
+            <td><%= Test.find(g.test_id).topic %></td> 
+            <td><%= User.find(g.user_id).profile.last_name %>
+            <%= User.find(g.user_id).profile.first_name %></td>
+            <td><%= g.result %></td>
+            <td><%= link_to 'Edytuj', edit_grade_path(g), class: 'btn btn-info' %></td>
+            <td><%= button_to 'Usuń', destroy_grade_path(g), method: :delete, data: { confirm: 'Na pewno?' }, class: 'btn btn-danger' %></td>
+            </tr>
+        <% end %>
+        </table>
+    </div>
+</div>

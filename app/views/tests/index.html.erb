@@ -20,7 +20,7 @@
             <td><%= t.topic %></td>
             <td><%= t.date %></td>
             <td><%= link_to 'Edytuj', edit_test_path(t), class: 'btn btn-info' %></td>
-            <td><%= button_to 'Usuń', destroy_test_path(t), method: :delete, data: { confirm: 'Na pewno?' }, class: 'btn btn-danger' %><br></td>
+            <td><%= button_to 'Usuń', destroy_test_path(t), method: :delete, data: { confirm: 'Na pewno?' }, class: 'btn btn-danger' %></td>
             </tr>
                 
         <% end %>
