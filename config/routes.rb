@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resource :profile
     resources :grades
   end
+  post 'users/:user_id/grades' => 'grades#create', as: :create_grade
     
   resources :contacts
   get '/about' => 'pages#about'
