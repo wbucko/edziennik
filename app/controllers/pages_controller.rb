@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
     
     def home
-        if current_user.email != 'admin@admin.pl'
+        if user_signed_in? && current_user.email != 'admin@admin.pl'
             redirect_to user_path(current_user)
         end
     end

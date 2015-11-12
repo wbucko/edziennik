@@ -1,32 +1,29 @@
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2 well">
-            <h1 class="text-center">Lista uczniów:</h1>
-                <ul class="list-unstyled">
-                <% @users.each do |u| %>
-                    <% if u.profile %>
-                    <li>
-                        <div class="row">
-                          <div class="col-sm-2 text-center">
-                              <%= link_to u do %>
-                                  <%= image_tag u.profile.avatar.url(:thumb), class: 'img-profil' %>
-                              <% end %>
-                          </div>
-                          <div><h2>
-                              <%= link_to u do %>
-                                  <%= u.profile.first_name %> <%= u.profile.last_name %>
-                              <% end %>
-                          </h2></div>
-                            
-                        </div>
-                    </li>    
-                    <% end %>
+<div class="row">
+    <div class="col-md-8 col-md-offset-2 well">
+        <h1 class="text-center">Lista uczniów:</h1>
+            <ul class="list-unstyled">
+            <% @users.each do |u| %>
+                <% if u.profile %>
+                <li>
+                    <div class="row">
+                      <div class="col-sm-2 text-center">
+                          <%= link_to u do %>
+                              <%= image_tag u.profile.avatar.url(:thumb), class: 'img-profil' %>
+                          <% end %>
+                      </div>
+                      <div><h2>
+                          <%= link_to u do %>
+                              <%= u.profile.first_name %> <%= u.profile.last_name %>
+                          <% end %>
+                      </h2></div>
+                        
+                    </div>
+                </li>    
                 <% end %>
-                </ul>
-                <div class="text-right">
-                <%= link_to 'Powrót', grades_path, class: 'btn btn-default' %>  
-                </div>
-        </div>
+            <% end %>
+            </ul>
+            <div class="text-right">
+            <%= link_to 'Powrót', grades_path, class: 'btn btn-default' %>  
+            </div>
     </div>
 </div>
-        

@@ -3,6 +3,10 @@ class GradesController < ApplicationController
   def index
     @grades = Grade.all
   end
+  
+  def show
+    @grades = Grade.all
+  end
    
   def new
     @tests = Test.all

@@ -1,4 +1,4 @@
-<% if current_user.email == 'admin@admin.pl' %>
+<% if user_signed_in? && current_user.email == 'admin@admin.pl' %>
     <div class="jumbotron">
         <h1 class="text-center">Witaj Nauczycielu!</h1>
     </div>
