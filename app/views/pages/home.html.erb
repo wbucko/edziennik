@@ -2,20 +2,22 @@
     <div class="jumbotron">
         <h1 class="text-center">Witaj Nauczycielu!</h1>
     </div>
-    <div class="container"> 
         <div class="row">
-            <div class="col-md-5 well">
+            <div class="col-md-6">
+                <div class="well">
                 <h1 class="text-center">Sprawdziany</h1>
-                <h3>Dodaj kolejne sprawdziany z przediotów, które prowadzisz aby móc wstawić uczniom oceny.</h3><br>
-                <%= link_to 'Nowy sprawdzian', new_test_path, class: 'btn btn-success form-control' %>
+                <h3>Dodaj kolejne sprawdziany z przedmiotów, które prowadzisz, aby móc wstawić uczniom oceny.</h3><br><br>
+                <%= link_to 'Sprawdziany', tests_path, class: 'btn btn-success form-control' %>
             </div>
-            <div class="col-md-5 col-md-offset-1 well">
+            </div>
+            <div class="col-md-6">
+                <div class="well">
                 <h1 class="text-center">Oceny</h1>
                 <h3>Wybierz z listy dostępne tematy zaliczeń i oceń kolejnych uczniów.</h3><br><br>
-                <%= link_to 'Nowa ocena', new_grade_path, class: 'btn btn-success form-control' %>
-            </div>
+                <%= link_to 'Oceny', grades_path, class: 'btn btn-success form-control' %>
+            </div</div>
         </div>
-    </div>
+
             
             
 <% else %>

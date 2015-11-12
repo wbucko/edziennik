@@ -8,10 +8,14 @@
                     <li>
                         <div class="row">
                           <div class="col-sm-2 text-center">
-                          <%= image_tag u.profile.avatar.url(:thumb), class: 'img-profil' %>
+                              <%= link_to u do %>
+                                  <%= image_tag u.profile.avatar.url(:thumb), class: 'img-profil' %>
+                              <% end %>
                           </div>
                           <div><h2>
-                          <%= u.profile.first_name %> <%= u.profile.last_name %>
+                              <%= link_to u do %>
+                                  <%= u.profile.first_name %> <%= u.profile.last_name %>
+                              <% end %>
                           </h2></div>
                             
                         </div>
@@ -19,6 +23,9 @@
                     <% end %>
                 <% end %>
                 </ul>
+                <div class="text-right">
+                <%= link_to 'Powrót', grades_path, class: 'btn btn-default' %>  
+                </div>
         </div>
     </div>
 </div>

@@ -9,8 +9,9 @@
                 <h3>Opinia o uczniu:</h3><br>
                 <p><%= @user.profile.opinion %></p>
             <% end %>
-            <p>Chcesz zmienić swoje dane?</p>
+            
             <%= link_to 'Edytuj profil', edit_user_profile_path(@user), class: 'form-control btn btn-info' %>
+            <%= link_to 'Powrót', users_path, class: 'form-control btn btn-default' %> 
         </div>
         <div class="col-md-7 col-md-offset-1 well">
             <h2 class="text-center">Wybierz przedmiot aby sprawdzić oceny.</h2>
