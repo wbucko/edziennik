@@ -19,11 +19,11 @@
             <h2 class="text-center">Wybierz przedmiot aby sprawdzić oceny.</h2>
             <div class="img-link">
             <%= link_to image_tag("historia.png", :alt => "Historia muzyki", class: 'img'), '#' %><br>
-            <%= link_to 'Historia muzyki', grade_path, class: 'btn btn-success btn-block btn-lg' %>
+            <%= link_to 'Historia muzyki', grade_path(subject: 'Historia'), class: 'btn btn-success btn-block btn-lg' %>
             </div>
             <div class="img-link">
             <%= link_to image_tag("nuty.jpg", :alt => "Formy muzyczne", class: 'img'), '#' %><br>
-            <%= link_to 'Formy muzyczne', '#', class: 'btn btn-success btn-block btn-lg' %>
+            <%= link_to 'Formy muzyczne', grade_path(subject: 'Formy'), class: 'btn btn-success btn-block btn-lg' %>
             </div>
         </div>
     </div>    
