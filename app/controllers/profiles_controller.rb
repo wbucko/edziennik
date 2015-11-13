@@ -1,4 +1,7 @@
 class ProfilesController < ApplicationController
+   before_filter :only_current_user
+   before_filter :authenticate_user!
+    
    def new
     @user = User.find(params[:user_id])
     @profile = @user.build_profile
@@ -38,6 +41,10 @@ class ProfilesController < ApplicationController
     def profile_params
       params.require(:profile).permit(:first_name, :last_name, :avatar, :year, :contact_email, :opinion) 
    
+    end
+    def only_current_user
+        @user = User.find(params[:user_id])
+        redirect_to(root_url) unless (@user == current_user || @user.email == 'admin@admin.pl')
     end
     
 end

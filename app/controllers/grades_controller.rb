@@ -1,4 +1,5 @@
 class GradesController < ApplicationController
+  before_filter :admin_verify, except: [:show]
 
   def index
     @grades = Grade.all
@@ -29,6 +30,17 @@ class GradesController < ApplicationController
      @tests = Test.all
      @users = User.all
      @grade = Grade.find(params[:id]) 
+  end
+  
+  def update
+    @grade = Grade.find(params[:id])
+    if @grade.update_attributes(grades_params)
+        flash[:success] = 'Ocena zaktualizowana!'
+        redirect_to grades_path
+    else
+        flash[:danger] = 'Uzupełnij wszystkie pola!'
+        render action: :edit
+    end
   end
   
   def destroy

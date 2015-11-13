@@ -3,6 +3,7 @@
         <h1 class="text-center">Lista uczniów:</h1>
             <ul class="list-unstyled">
             <% @users.each do |u| %>
+              <% if u.email != 'admin@admin.pl' %>
                 <% if u.profile %>
                 <li>
                     <div class="row">
@@ -17,9 +18,10 @@
                           <% end %>
                       </h2></div>
                         
-                    </div>
+                    </div><br>
                 </li>    
                 <% end %>
+              <% end %>    
             <% end %>
             </ul>
             <div class="text-right">
