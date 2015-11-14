@@ -5,25 +5,27 @@
         <%= link_to 'Nowy', new_test_path, class: 'btn btn-success btn-lg' %>
         <%= link_to 'Powrót', root_path, class: 'btn btn-default' %>
     </div>
-    <div class="col-md-8 col-md-offset-2 well">
-        <table class="table">
-            <tr>
-                <th>Przedmiot</th>
-                <th>Temat</th>
-                <th>Data</th>
-                <th></th>
-            </tr>
-        <% @tests.each do |t| %>
-        
-            <tr>
-            <td><%= t.subject %></td>
-            <td><%= t.topic %></td>
-            <td><%= t.date %></td>
-            <td class="text-right"><%= link_to 'Edytuj', edit_test_path(t), class: 'btn btn-info' %>
-            <%= link_to 'Usuń', destroy_test_path(t), method: :delete, data: { confirm: 'Na pewno?' }, class: 'btn btn-danger' %></td>
-            </tr>
-                
-        <% end %>
-        </table>
+    <div class="col-md-8 col-md-offset-2">
+        <div class="well">
+            <table class="table">
+                <tr>
+                    <th>Przedmiot</th>
+                    <th>Temat</th>
+                    <th>Data</th>
+                    <th></th>
+                </tr>
+            <% @tests.each do |t| %>
+            
+                <tr>
+                <td><%= t.subject %></td>
+                <td><%= t.topic %></td>
+                <td><%= t.date %></td>
+                <td class="text-right"><%= link_to 'Edytuj', edit_test_path(t), class: 'btn btn-info' %>
+                <%= link_to 'Usuń', destroy_test_path(t), method: :delete, data: { confirm: 'Na pewno?' }, class: 'btn btn-danger' %></td>
+                </tr>
+                    
+            <% end %>
+            </table>
+        </div>
     </div>
 </div>

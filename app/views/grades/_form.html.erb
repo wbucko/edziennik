@@ -1,7 +1,7 @@
 <%= form_for @grade do |f| %>
     <div class="form-group">
         <%= f.label 'Temat' %>
-        <%= f.select :test_id do %>
+        <%= f.select :test_id, {}, {}, class: 'form-control' do %>
             <%= @tests.each do |t| -%>
                 <%= content_tag(:option, t.topic, value: t.id) %>
             <% end %>
@@ -9,9 +9,11 @@
     </div>
     <div class="form-group">
         <%= f.label 'Uczeń' %>
-        <%= f.select :user_id do %>
+        <%= f.select :user_id, {}, {}, class: 'form-control' do %>
             <%= @users.each do |u| -%>
-                <%= content_tag(:option, "#{u.profile.last_name} #{u.profile.first_name}", value: u.id) %>
+                <% unless u.email == 'admin@admin.pl' %>
+                    <%= content_tag(:option, "#{u.profile.last_name} #{u.profile.first_name}", value: u.id) %>
+                <% end %>
             <% end %>
         <% end %>
     </div>

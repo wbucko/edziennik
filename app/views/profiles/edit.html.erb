@@ -1,10 +1,12 @@
 <div class="row">
-    <div class="col-md-6 col-md-offset-3 well">
-        <h1 class="text-center">Edytuj profil</h1>
-        <p class="text-justify">Uzupełnij swój profil aby mieć dostęp do wyników zajęć.</p>
-
-        <%= render "profiles/shared/profile" %>
-        <%= link_to "Wróć", :back, class: 'btn btn-default' %>
+    <div class="col-md-6 col-md-offset-3">
+        <div class="well">
+            <h1 class="text-center">Edytuj profil</h1>
+            <p class="text-justify">Uzupełnij swój profil aby mieć dostęp do wyników zajęć.</p>
+    
+            <%= render "profiles/shared/profile" %>
+            <%= link_to "Wróć", :back, class: 'btn btn-default' %>
+        </div>
     </div>
     
 </div>

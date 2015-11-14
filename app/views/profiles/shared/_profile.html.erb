@@ -15,10 +15,12 @@
         <%= f.label 'Rok' %>
         <%= f.text_field :year, class: 'form-control' %>
     </div>
-    <div class="form-group">
-        <%= f.label 'Opinia Nauczyciela' %>
-        <%= f.text_area :opinion, disabled: true, class: 'form-control' %>
-    </div>
+    <% if current_user.email == 'admin@admin.pl' %>
+        <div class="form-group">
+            <%= f.label 'Opinia Nauczyciela' %>
+            <%= f.text_area :opinion, class: 'form-control' %>
+        </div>
+    <% end %>    
     <div class="form-group">
         <%= f.submit 'Zapisz', class: 'btn btn-primary' %>
     </div>

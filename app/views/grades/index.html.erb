@@ -7,25 +7,27 @@
         <%= link_to 'Uczniowie', users_path, class: 'btn btn-default' %>
         <%= link_to 'Powrót', root_path, class: 'btn btn-default' %>        
     </div>
-    <div class="col-md-8 col-md-offset-2 well">
-        <table class="table">
-            <tr>
-                <th>Temat</th>
-                <th>Uczeń</th>
-                <th>Ocena</th>
-                <th></th>
-            </tr>
-        
-        <% @grades.each do |g| %>
-            <tr>
-            <td><%= Test.find(g.test_id).topic %></td> 
-            <td><%= User.find(g.user_id).profile.last_name %>
-            <%= User.find(g.user_id).profile.first_name %></td>
-            <td><%= g.result %></td>
-            <td class="text-right"><%= link_to 'Edytuj', edit_grade_path(g), class: 'btn btn-info' %>
-            <%= link_to 'Usuń', destroy_grade_path(g), method: :delete, data: { confirm: 'Na pewno?' }, class: 'btn btn-danger' %></td>
-            </tr>
-        <% end %>
-        </table>
+    <div class="col-md-8 col-md-offset-2">
+        <div class="well">
+            <table class="table">
+                <tr>
+                    <th>Temat</th>
+                    <th>Uczeń</th>
+                    <th>Ocena</th>
+                    <th></th>
+                </tr>
+            
+            <% @grades.each do |g| %>
+                <tr>
+                <td><%= Test.find(g.test_id).topic %></td> 
+                <td><%= User.find(g.user_id).profile.last_name %>
+                <%= User.find(g.user_id).profile.first_name %></td>
+                <td><%= g.result %></td>
+                <td class="text-right"><%= link_to 'Edytuj', edit_grade_path(g), class: 'btn btn-info' %>
+                <%= link_to 'Usuń', destroy_grade_path(g), method: :delete, data: { confirm: 'Na pewno?' }, class: 'btn btn-danger' %></td>
+                </tr>
+            <% end %>
+            </table>
+        </div>
     </div>
 </div>

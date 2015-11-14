@@ -3,12 +3,13 @@
         <div class="well">
             <%= image_tag @user.profile.avatar.url, class: 'img-profil' %>
             <h1><%= @user.profile.first_name %> <%= @user.profile.last_name %></h1>
-            <h3><%= @user.profile.year %> rok</h3>
-                
-            <% if @user.email == 'admin@admin.pl' %>    
-                <h3>Opinia o uczniu:</h3><br>
-                <p><%= @user.profile.opinion %></p>
-            <% end %>
+            <h3><%= @user.profile.year %> rok</h3><br>
+            <div class="text-justify">    
+                <% if current_user.email == 'admin@admin.pl' %>    
+                    <h4>Opinia o uczniu:</h4>
+                    <p><%= @user.profile.opinion %></p><br>
+                <% end %>
+            </div>
             
             <%= link_to 'Edytuj profil', edit_user_profile_path(@user), class: 'form-control btn btn-info' %>
             <%= link_to 'Powrót', users_path, class: 'form-control btn btn-default' %> 

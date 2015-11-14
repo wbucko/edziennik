@@ -2,7 +2,7 @@ class GradesController < ApplicationController
   before_filter :admin_verify, except: [:show]
 
   def index
-    @grades = Grade.all
+    @grades = Grade.all.order('test_id DESC')
   end
   
   def show

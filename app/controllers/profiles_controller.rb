@@ -29,7 +29,7 @@ class ProfilesController < ApplicationController
         @profile = @user.profile
         if @profile.update_attributes(profile_params)
             flash[:success] = 'Profil zaktualizowany!'
-            redirect_to root_path
+            redirect_to user_path(@user)
         else
             flash[:danger] = 'Uzupełnij wszystkie pola!'
             render action: :edit
@@ -44,7 +44,7 @@ class ProfilesController < ApplicationController
     end
     def only_current_user
         @user = User.find(params[:user_id])
-        redirect_to(root_url) unless (@user == current_user || @user.email == 'admin@admin.pl')
+        redirect_to(root_url) unless (@user == current_user || current_user.email == 'admin@admin.pl')
     end
     
 end
