@@ -21,6 +21,8 @@ gem 'font-awesome-sass'
 gem 'devise'
 # Use paperclip for adding avatars to profiles
 gem "paperclip", "~> 4.3"
+# Use aws gem for hosting file on aws s3
+gem 'aws-sdk'
 #use postress for production
 group :production do
   gem 'pg'
