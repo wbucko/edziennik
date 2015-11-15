@@ -81,8 +81,7 @@ Rails.application.configure do
   :storage => :s3,
   :s3_credentials => {
     :bucket => ENV['edziennik'],
-    :access_key_id => ENV['AKIAIHOL5FR6VBWRAEGQ '],
-    :secret_access_key => ENV['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']
+
   }
 }
   
