@@ -7,6 +7,7 @@ class GradesController < ApplicationController
   
   def show
     @grades = Grade.all
+    @user = User.find(params[:id])
   end
    
   def new

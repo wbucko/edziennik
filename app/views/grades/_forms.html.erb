@@ -5,13 +5,13 @@
         <th>Data</th>
         <th>Ocena</th>
     </tr>
-    <% @grades.each do |g| %>
+    <% @user.grades.each do |g| %>
     <tr>
-        <% if Test.find(g.test_id).subject == 'Formy Muzyczne' && current_user.id == g.user_id %>
-            <td><%= Test.find(g.test_id).topic %></td> 
-            <td><%= Test.find(g.test_id).date %>
+        <% if g.test.subject == 'Formy Muzyczne' %>
+            <td><%= g.test.topic %></td> 
+            <td><%= g.test.date %>
             <td><%= g.result %></td>
         <% end %>
     </tr>
-<% end %>
+    <% end %>
 </table>

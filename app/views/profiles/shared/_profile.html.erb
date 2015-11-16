@@ -8,11 +8,11 @@
         <%= f.text_field :last_name, class: 'form-control' %>
     </div>
     <div class="form-group">
-        <%= f.label 'Zdjęcie profilowe' %>
+        <%= f.label 'Zdjęcie profilowe' %> <i>(max 1 MB)</i>
         <%= f.file_field :avatar, class: 'form-control' %>
     </div>    
     <div class="form-group">
-        <%= f.label 'Rok' %>
+        <%= f.label 'Rok zajęć' %>
         <%= f.text_field :year, class: 'form-control' %>
     </div>
     <% if current_user.email == 'admin@admin.pl' %>
