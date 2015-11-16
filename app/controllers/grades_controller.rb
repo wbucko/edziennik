@@ -17,6 +17,8 @@ class GradesController < ApplicationController
   end 
    
   def create
+    @tests = Test.all
+    @users = User.all
     @grade = Grade.new(grades_params)
     if @grade.save
         flash[:success] = 'Ocena zapisana.'
