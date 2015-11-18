@@ -1,13 +1,13 @@
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
-  config.secret_key = Figaro.env.devise_secret_key if Rails.env.production?
+
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` on Rails 4+ applications as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '77d767defbcc9d532cae8f48c221375f9997edaf68bedbe3f0756425b1f8db20613bf85344705613d68479501b6b240c1064859be29bf6db1822fdc6ae09f463'
+  config.secret_key = '77d767defbcc9d532cae8f48c221375f9997edaf68bedbe3f0756425b1f8db20613bf85344705613d68479501b6b240c1064859be29bf6db1822fdc6ae09f463'
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
