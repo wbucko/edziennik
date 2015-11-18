@@ -16,5 +16,6 @@
 !/log/.keep
 /tmp
 
-# Ignore credentials
-/.env
+
+# Ignore application configuration
+/config/application.yml

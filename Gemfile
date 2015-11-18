@@ -22,7 +22,11 @@ gem 'devise'
 # Use paperclip for adding avatars to profiles
 gem "paperclip", "~> 4.3"
 # Use aws gem for hosting file on aws s3
-gem 'aws-sdk'
+gem 'aws-sdk', '<2.0'
+
+gem 'fog'
+
+gem 'figaro'
 #use postress for production
 group :production do
   gem 'pg'
