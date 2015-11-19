@@ -14,7 +14,7 @@ class ProfilesController < ApplicationController
             flash[:success] = "Profil utworzony!"
             redirect_to root_path
         else
-            flash[:danger] = 'Uzupełnij wszystkie pola!'
+            flash[:danger] = 'Poprawnie uzupełnij wszystkie pola!'
             render action: :new
         end
     end
@@ -31,7 +31,7 @@ class ProfilesController < ApplicationController
             flash[:success] = 'Profil zaktualizowany!'
             redirect_to user_path(@user)
         else
-            flash[:danger] = 'Uzupełnij wszystkie pola!'
+            flash[:danger] = 'Poprawnie uzupełnij wszystkie pola!'
             render action: :edit
         end
     end

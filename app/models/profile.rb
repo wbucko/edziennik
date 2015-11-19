@@ -3,7 +3,8 @@ class Profile < ActiveRecord::Base
     validates :first_name, :last_name, :year, presence: true
     validates :avatar, attachment_presence: true
     validates_with AttachmentSizeValidator, attributes: :avatar, less_than: 1.megabytes
-
+    validates :year, inclusion: 1..4
+    
    has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100#" },
     :default_url => "/images/:style/missing.png",
     :url  => ":s3_domain_url",
