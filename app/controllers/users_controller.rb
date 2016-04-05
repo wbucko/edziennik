@@ -1,13 +1,12 @@
 class UsersController < ApplicationController
-   before_filter :authenticate_user!
+  before_action :authenticate_user!
    
-   def show
-      @user = User.find(params[:id])
-      redirect_to users_path unless (@user == current_user || current_user.email == 'admin@admin.pl')
-   end
+  def show
+    @user = User.find(params[:id])
+    current_user_or_admin(users_path)
+  end
    
-   def index
-      @users = User.all
-   end
-    
+  def index
+    @users = User.all
+  end
 end

@@ -1,50 +1,49 @@
 class ProfilesController < ApplicationController
-   before_filter :only_current_user
-   before_filter :authenticate_user!
+  before_action :set_user
+  before_action :only_current_user
+  before_action :authenticate_user!
+
     
-   def new
-    @user = User.find(params[:user_id])
+  def new
     @profile = @user.build_profile
-   end
+  end
    
-    def create
-        @user = User.find( params[:user_id] )
-        @profile = @user.build_profile(profile_params)
-        if @profile.save
-            flash[:success] = "Profil utworzony!"
-            redirect_to root_path
-        else
-            flash[:danger] = 'Poprawnie uzupełnij wszystkie pola!'
-            render action: :new
-        end
+  def create
+    @profile = @user.build_profile(profile_params)
+    if @profile.save
+      flash[:success] = "Profil utworzony!"
+      redirect_to root_path
+    else
+      flash[:danger] = 'Poprawnie uzupełnij wszystkie pola!'
+      render :new
     end
+  end
     
-    def edit
-        @user = User.find( params[:user_id] )
-        @profile = @user.profile
+  def edit
+    @profile = @user.profile
+  end
+    
+  def update
+    @profile = @user.profile
+    if @profile.update_attributes(profile_params)
+      flash[:success] = 'Profil zaktualizowany!'
+      redirect_to user_path(@user)
+    else
+      flash[:danger] = 'Poprawnie uzupełnij wszystkie pola!'
+      render :edit
     end
+  end
     
-    def update
-        @user = User.find( params[:user_id] )
-        @profile = @user.profile
-        if @profile.update_attributes(profile_params)
-            flash[:success] = 'Profil zaktualizowany!'
-            redirect_to user_path(@user)
-        else
-            flash[:danger] = 'Poprawnie uzupełnij wszystkie pola!'
-            render action: :edit
-        end
-    end
-    
-    private
-    
-    def profile_params
-      params.require(:profile).permit(:first_name, :last_name, :avatar, :year, :contact_email, :opinion) 
-   
-    end
-    def only_current_user
-        @user = User.find(params[:user_id])
-        redirect_to(root_url) unless (@user == current_user || current_user.email == 'admin@admin.pl')
-    end
-    
+  private
+  def set_user
+    @user = User.find(params[:user_id])
+  end
+
+  def profile_params
+    params.require(:profile).permit(:first_name, :last_name, :avatar, :year, :contact_email, :opinion) 
+  end
+  
+  def only_current_user
+    current_user_or_admin(root_path)
+  end  
 end
