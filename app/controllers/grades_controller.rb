@@ -1,5 +1,6 @@
 class GradesController < ApplicationController
   before_filter :admin_verify, except: [:show]
+  before_action :grades_and_tests, only: [:new, :edit]
 
   def index
     @grades = Grade.all.order('test_id DESC')
@@ -11,14 +12,10 @@ class GradesController < ApplicationController
   end
    
   def new
-    @tests = Test.all
-    @users = User.all
     @grade = Grade.new
   end 
    
   def create
-    @tests = Test.all
-    @users = User.all
     @grade = Grade.new(grades_params)
     if @grade.save
         flash[:success] = 'Ocena zapisana.'
@@ -30,8 +27,6 @@ class GradesController < ApplicationController
   end
   
   def edit 
-     @tests = Test.all
-     @users = User.all
      @grade = Grade.find(params[:id]) 
   end
   
@@ -53,6 +48,12 @@ class GradesController < ApplicationController
   end
   
   private
+
+  def grades_and_tests
+    @tests = Test.all
+    @users = User.all
+  end
+
   def grades_params
      params.require(:grade).permit(:user_id, :test_id, :result) 
   end
