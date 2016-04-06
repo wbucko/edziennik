@@ -24,7 +24,7 @@
             <%= g.user.profile.first_name %></td>
             <td><%= g.result %></td>
             <td class="text-right"><%= link_to 'Edytuj', edit_grade_path(g), class: 'btn btn-info' %>
-            <%= link_to 'Usuń', destroy_grade_path(g), method: :delete, data: { confirm: 'Na pewno?' }, class: 'btn btn-danger' %></td>
+            <%= link_to 'Usuń', grade_path(g), method: :delete, data: { confirm: 'Na pewno?' }, class: 'btn btn-danger' %></td>
           </tr>
         <% end %>
       </table>

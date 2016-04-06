@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
   
   resources :tests
-  delete 'tests/:id' => 'tests#destroy', as: :destroy_test
   resources :grades
-  delete 'grades/:id' => 'grades#destroy', as: :destroy_grade
   devise_for :users
   resources :users do
     resource :profile

@@ -2,7 +2,7 @@ class GradesController < ApplicationController
   before_action :admin_verify, except: [:show]
   before_action :grades_and_tests, only: [:new, :edit]
   before_action :set_grade, only: [:edit, :update, :destroy]
-  before_action :only_owner_user, only: :show
+  before_action :owner_or_admin, only: :show
 
   def index
     @grades = Grade.all.order('test_id DESC')
@@ -60,8 +60,8 @@ class GradesController < ApplicationController
     @grade = Grade.find(params[:id])
   end
 
-  def only_owner_user
+  def owner_or_admin
     @user = User.find(params[:id])
-    redirect_to root_path unless @user == current_user 
+    redirect_to root_path unless @user == current_user || current_user.email = 'admin@admin.pl'
   end
 end
