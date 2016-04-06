@@ -1,32 +1,32 @@
 <div class="row">
-    <div class="col-md-4 text-center">
-        <div class="well">
-            <%= image_tag @user.profile.avatar.url, class: 'img-profil' %>
-            <h1><%= @user.profile.first_name %> <%= @user.profile.last_name %></h1>
-            <h3><%= @user.profile.year %> rok</h3><br>
-            <div class="text-justify">    
-                <% if current_user.email == 'admin@admin.pl' %>    
-                    <h4>Opinia o uczniu:</h4>
-                    <p><%= @user.profile.opinion %></p><br>
-                <% end %>
-            </div>
+  <div class="col-md-4 text-center">
+    <div class="well">
+      <%= image_tag @user.profile.avatar.url, class: 'img-profil' %>
+      <h1><%= @user.profile.first_name %> <%= @user.profile.last_name %></h1>
+      <h3><%= @user.profile.year %> rok</h3><br>
+      <div class="text-justify">    
+        <% if current_user.email == 'admin@admin.pl' %>    
+          <h4>Opinia o uczniu:</h4>
+          <p><%= @user.profile.opinion %></p><br>
+        <% end %>
+      </div>
             
-            <%= link_to 'Edytuj profil', edit_user_profile_path(@user), class: 'form-control btn btn-info' %>
-            <%= link_to 'Powrót', users_path, class: 'form-control btn btn-default' %> 
-        </div>
-    </div>    
-    <div class="col-md-7 col-md-offset-1">
-        <div class="well">
-            <h2 class="text-center">Wybierz przedmiot aby sprawdzić oceny.</h2>
-            <div class="img-link">
-            <%= link_to image_tag("historia.png", :alt => "Historia muzyki", class: 'img'), grade_path(subject: 'Historia') %><br>
-            <%= link_to 'Historia muzyki', grade_path(subject: 'Historia'), class: 'btn btn-success btn-block btn-lg' %>
-            </div>
-            <div class="img-link">
-            <%= link_to image_tag("nuty.jpg", :alt => "Formy muzyczne", class: 'img'), grade_path(subject: 'Formy') %><br>
-            <%= link_to 'Formy muzyczne', grade_path(subject: 'Formy'), class: 'btn btn-success btn-block btn-lg' %>
-            </div>
-        </div>
-    </div>    
+      <%= link_to 'Edytuj profil', edit_user_profile_path(@user), class: 'form-control btn btn-info' %>
+      <%= link_to 'Powrót', users_path, class: 'form-control btn btn-default' %> 
+    </div>
+  </div>    
+  <div class="col-md-7 col-md-offset-1">
+    <div class="well">
+      <h2 class="text-center">Wybierz przedmiot aby sprawdzić oceny.</h2>
+      <div class="img-link">
+        <%= link_to image_tag("historia.png", :alt => "Historia muzyki", class: 'img'), grade_path(subject: 'Historia') %><br>
+        <%= link_to 'Historia muzyki', grade_path(subject: 'Historia'), class: 'btn btn-success btn-block btn-lg' %>
+      </div>
+      <div class="img-link">
+        <%= link_to image_tag("nuty.jpg", :alt => "Formy muzyczne", class: 'img'), grade_path(subject: 'Formy') %><br>
+        <%= link_to 'Formy muzyczne', grade_path(subject: 'Formy'), class: 'btn btn-success btn-block btn-lg' %>
+      </div>
+    </div>
+  </div>    
 </div>
   

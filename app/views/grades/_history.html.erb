@@ -1,17 +1,17 @@
 <h1 class="text-center">Oceny z Historii Muzyki</h1><br>
 <table class="table">
+  <tr>
+    <th>Temat</th>
+    <th>Data</th>
+    <th>Ocena</th>
+  </tr>
+  <% @user.grades.each do |g| %>
     <tr>
-        <th>Temat</th>
-        <th>Data</th>
-        <th>Ocena</th>
+      <% if g.test.subject == 'Historia Muzyki' %>
+        <td><%= g.test.topic %></td> 
+        <td><%= g.test.date %>
+        <td><%= g.result %></td>
+      <% end %>
     </tr>
-    <% @user.grades.each do |g| %>
-    <tr>
-        <% if g.test.subject == 'Historia Muzyki' %>
-            <td><%= g.test.topic %></td> 
-            <td><%= g.test.date %>
-            <td><%= g.result %></td>
-        <% end %>
-    </tr>
-    <% end %>
+  <% end %>
 </table>

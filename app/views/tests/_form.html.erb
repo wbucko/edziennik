@@ -1,18 +1,18 @@
 <%= form_for (@test) do |f| %>
-    <div class="form-group">
-        <%= f.label 'Przedmiot' %>
-        <%= f.select :subject, ['Historia Muzyki', 'Formy Muzyczne'], {}, class: 'form-control' %>
-    </div>
-    <div class="form-group">
-        <%= f.label 'Temat' %>
-        <%= f.text_field :topic, class: 'form-control' %>
-    </div>
-    <div class="form-group">
-        <%= f.label 'Data' %>
-        <%= f.date_select :date, class: 'control-label' %>
-    </div>
-    <div class="form-group">
-        <%= f.submit 'Zapisz', class: 'btn btn-success' %>
-    </div>
+  <div class="form-group">
+    <%= f.label 'Przedmiot' %>
+    <%= f.select :subject, ['Historia Muzyki', 'Formy Muzyczne'], {}, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label 'Temat' %>
+    <%= f.text_field :topic, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label 'Data' %>
+    <%= f.date_select :date, class: 'control-label' %>
+  </div>
+  <div class="form-group">
+    <%= f.submit 'Zapisz', class: 'btn btn-success' %>
+  </div>
 <% end %>
 <%= link_to 'Powrót', tests_path, class: 'btn btn-default' %>

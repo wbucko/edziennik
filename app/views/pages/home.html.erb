@@ -1,43 +1,41 @@
 <% if user_signed_in? && current_user.email == 'admin@admin.pl' %>
-    <div class="jumbotron">
-        <h1 class="text-center">Witaj Nauczycielu!</h1>
-        <p>Zajrzyj na listę uczniów, aby sprawdzić wyniki konkretnej osoby.</p>
-        <%= link_to 'Uczniowie', users_path, class: 'btn btn-default' %>
+  <div class="jumbotron">
+    <h1 class="text-center">Witaj Nauczycielu!</h1>
+    <p>Zajrzyj na listę uczniów, aby sprawdzić wyniki konkretnej osoby.</p>
+    <%= link_to 'Uczniowie', users_path, class: 'btn btn-default' %>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="well">
+        <h1 class="text-center">Sprawdziany</h1>
+        <h3>Dodaj kolejne sprawdziany z przedmiotów, które prowadzisz, aby móc wstawić uczniom oceny.</h3><br><br>
+        <%= link_to 'Sprawdziany', tests_path, class: 'btn btn-success form-control' %>
+      </div>
     </div>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="well">
-                <h1 class="text-center">Sprawdziany</h1>
-                <h3>Dodaj kolejne sprawdziany z przedmiotów, które prowadzisz, aby móc wstawić uczniom oceny.</h3><br><br>
-                <%= link_to 'Sprawdziany', tests_path, class: 'btn btn-success form-control' %>
-            </div>
-            </div>
-            <div class="col-md-6">
-                <div class="well">
-                <h1 class="text-center">Oceny</h1>
-                <h3>Wybierz z listy dostępne tematy zaliczeń i oceń kolejnych uczniów.</h3><br><br>
-                <%= link_to 'Oceny', grades_path, class: 'btn btn-success form-control' %>
-            </div</div>
-        </div>
-
-            
-            
+    <div class="col-md-6">
+      <div class="well">
+        <h1 class="text-center">Oceny</h1>
+        <h3>Wybierz z listy dostępne tematy zaliczeń i oceń kolejnych uczniów.</h3><br><br>
+        <%= link_to 'Oceny', grades_path, class: 'btn btn-success form-control' %>
+      </div>
+    </div>
+  </div>          
 <% else %>
-<div class="container">
+  <div class="container">
     <div class="row">
-        <div class="col-md-7">
-            <div class="well">
-                <h1 class="text-center">eDziennik</h1>
-                <h3 class="text-justify">Strona do przechowywania i udostępniania osiągnieć uczniów Prywatnej Szkoły Muzycznej im. Ignacego Paderewskiego. Zarejestruj się jako uczestnik zajęć, aby mieć dostęp do swoich stopni.</h3>
-            </div>
+      <div class="col-md-7">
+        <div class="well">
+          <h1 class="text-center">eDziennik</h1>
+          <h3 class="text-justify">Strona do przechowywania i udostępniania osiągnieć uczniów Prywatnej Szkoły Muzycznej im. Ignacego Paderewskiego. Zarejestruj się jako uczestnik zajęć, aby mieć dostęp do swoich stopni.</h3>
         </div>
-        <div class="col-md-4 col-md-offset-1">
-            <div class="well">
-                <h1 class="text-center">Zarejestruj się</h1>
-                <%= render "devise/shared/registration" %>
-                <%= render "devise/shared/links" %>
-            </div>
+      </div>
+      <div class="col-md-4 col-md-offset-1">
+        <div class="well">
+          <h1 class="text-center">Zarejestruj się</h1>
+          <%= render "devise/shared/registration" %>
+          <%= render "devise/shared/links" %>
         </div>
+      </div>
     </div>
-</div>
+  </div>
 <% end %>

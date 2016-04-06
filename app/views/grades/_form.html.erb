@@ -1,28 +1,24 @@
 <%= form_for @grade do |f| %>
-    <div class="form-group">
-        <%= f.label 'Temat' %>
-        <%= f.select :test_id, {}, {}, class: 'form-control' do %>
-            <%= @tests.each do |t| -%>
-                <%= content_tag(:option, t.topic, value: t.id) %>
-            <% end %>
+  <div class="form-group">
+    <%= f.label 'Temat' %>
+    <%= f.select :test_id, @tests.map { |t| [t.topic, t.id] }, {}, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label 'Uczeń' %>
+    <%= f.select :user_id, {}, {}, class: 'form-control' do %>
+      <%= @users.each do |u| -%>
+        <% unless u.email == 'admin@admin.pl' %>
+          <%= content_tag(:option, "#{u.profile.last_name} #{u.profile.first_name}", value: u.id) %>
         <% end %>
-    </div>
-    <div class="form-group">
-        <%= f.label 'Uczeń' %>
-        <%= f.select :user_id, {}, {}, class: 'form-control' do %>
-            <%= @users.each do |u| -%>
-                <% unless u.email == 'admin@admin.pl' %>
-                    <%= content_tag(:option, "#{u.profile.last_name} #{u.profile.first_name}", value: u.id) %>
-                <% end %>
-            <% end %>
-        <% end %>
-    </div>
-    <div class="form-group">
-        <%= f.label 'Ocena' %>
-        <%= f.select :result, [1, 2, 3, 4, 5, 6], {}, class: 'form-control' %> 
-    </div>    
-    <div class="form-group">
-        <%= f.submit 'Zapisz', class: 'btn btn-success' %>
-    </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="form-group">
+    <%= f.label 'Ocena' %>
+    <%= f.select :result, [1, 2, 3, 4, 5, 6], {}, class: 'form-control' %> 
+  </div>    
+  <div class="form-group">
+    <%= f.submit 'Zapisz', class: 'btn btn-success' %>
+  </div>
 <% end %>
 

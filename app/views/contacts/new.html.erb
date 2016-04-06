@@ -1,29 +1,29 @@
 <div class="container">
-    <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-            <div class="well">    
-                <h1 class="text-center">Napisz do mnie</h1>
-                <p>Formularz chwilowo nieaktywny.</p>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <div class="well">    
+        <h1 class="text-center">Napisz do mnie</h1>
+        <p>Formularz chwilowo nieaktywny.</p>
                 
-                <%= form_for @contact do |f| %>
-                    <div class="form-group">
-                    <%= f.label 'Imię' %>
-                    <%= f.text_field :name, class: 'form-control' %>
-                    </div>
-                    
-                    <div class="form-group">
-                    <%= f.label :email %>
-                    <%= f.email_field :email, class: 'form-control' %>
-                    </div>
-                    
-                    <div class="form-group">
-                    <%= f.label 'Wiadomość' %>
-                    <%= f.text_area :message, class: 'form-control' %>
-                    </div>
-                    
-                    <%= f.submit "Wyślij", disabled: true, class: 'btn btn-default' %>
-                <% end %>
-            </div>    
-        </div>
+        <%= form_for @contact do |f| %>
+          <div class="form-group">
+            <%= f.label 'Imię' %>
+            <%= f.text_field :name, class: 'form-control' %>
+          </div>
+            
+          <div class="form-group">
+            <%= f.label :email %>
+            <%= f.email_field :email, class: 'form-control' %>
+          </div>
+            
+          <div class="form-group">
+            <%= f.label 'Wiadomość' %>
+            <%= f.text_area :message, class: 'form-control' %>
+          </div>
+            
+          <%= f.submit "Wyślij", disabled: true, class: 'btn btn-default' %>
+        <% end %>
+      </div>    
     </div>
+  </div>
 </div>
