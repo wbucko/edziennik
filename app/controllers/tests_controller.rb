@@ -17,7 +17,7 @@ class TestsController < ApplicationController
       redirect_to tests_path
     else
       flash[:danger] = 'Ups.. uzupełnij temat aby kontynuować.'
-      redirect_to new_test_path
+      render :new
     end
    end
    
@@ -36,7 +36,7 @@ class TestsController < ApplicationController
    
   def destroy
     @test.destroy
-    flash[:danger] = 'Sprawdzian usunięty.'
+    flash[:success] = 'Sprawdzian usunięty.'
     redirect_to tests_path
   end
    
