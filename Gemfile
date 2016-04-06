@@ -12,6 +12,7 @@ gem "paperclip", "~> 4.3"
 gem 'aws-sdk', '<2.0'
 gem 'fog'
 gem 'figaro'
+gem 'pry'
 
 group :production do
   gem 'pg'
@@ -26,10 +27,20 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 group :development, :test do
   gem 'byebug'
   gem 'sqlite3'
+  gem 'rspec-rails', '~> 3.0'
+  gem 'spring-commands-rspec'
+  gem 'guard-rspec', require: false
+  gem 'fabrication'
 end
 
 group :development do
   gem 'web-console', '~> 2.0'
   gem 'spring'
+end
+
+group :test do 
+  gem 'capybara', '~> 2.6', '>= 2.6.2'
+  gem 'faker'
+  gem 'shoulda-matchers', '~> 3.1'
 end
 
