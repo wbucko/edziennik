@@ -13,6 +13,7 @@ gem 'aws-sdk', '<2.0'
 gem 'fog'
 gem 'figaro'
 gem 'pry'
+gem 'activeadmin', github: 'activeadmin'
 
 group :production do
   gem 'pg'

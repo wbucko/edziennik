@@ -18,5 +18,9 @@ class Profile < ActiveRecord::Base
     fog_directory: ENV['FOG_DIRECTORY']
                       
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
+
+  def to_s
+    "#{first_name} #{last_name}"
+  end
 end
 

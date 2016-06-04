@@ -6,13 +6,19 @@ class ApplicationController < ActionController::Base
   private
 
   def after_sign_in_path_for(resource)
-    if current_user.email == 'admin@admin.pl'
-      root_path
-    else
-      if current_user.profile
-        user_path(current_user)
+
+    case resource
+    when AdminUser
+      admin_root_path
+    when User
+      if current_user.email == 'admin@admin.pl'
+        root_path
       else
-        new_user_profile_path(current_user)
+        if current_user.profile
+          user_path(current_user)
+        else
+          new_user_profile_path(current_user)
+        end
       end
     end
   end
